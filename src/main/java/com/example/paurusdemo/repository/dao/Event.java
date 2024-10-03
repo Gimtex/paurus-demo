@@ -11,6 +11,8 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@Setter
+@Getter
 @Entity
 @Table(name = Event.TABLE_NAME)
 public class Event {
@@ -18,33 +20,21 @@ public class Event {
     public static final String TABLE_NAME = "event";
 
     @Id
-    @Getter
-    @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Getter
-    @Setter
     @Column(name = "match_id")
     private String matchId;
 
-    @Getter
-    @Setter
     @Column(name = "market_id")
     private String marketId;
 
-    @Getter
-    @Setter
     @Column(name = "outcome_id")
     private String outcomeId;
 
-    @Getter
-    @Setter
     @Column(name = "specifiers")
     private String specifiers;
 
-    @Getter
-    @Setter
     @Column(name = "date_insert", columnDefinition = "TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime dateInsert;
 
