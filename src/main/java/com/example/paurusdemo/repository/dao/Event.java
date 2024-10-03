@@ -4,7 +4,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.persistence.GenerationType;
 import lombok.Getter;
@@ -46,12 +45,7 @@ public class Event {
 
     @Getter
     @Setter
-    @Column(name = "date_insert", columnDefinition = "TIMESTAMPTZ")
+    @Column(name = "date_insert", columnDefinition = "TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime dateInsert;
-
-    @PrePersist
-    protected void onCreate() {
-        this.dateInsert = LocalDateTime.now();
-    }
 
 }
